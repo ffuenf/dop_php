@@ -42,7 +42,7 @@ action :add do
       env_overrides: new_resource.env_overrides
     )
     notifies :restart, "service[#{node['php']['fpm']['service-name']}]" unless node['php']['fpm']['containerize']
-    mode 00644
+    mode 0o644
   end
 
   service node['php']['fpm']['service-name'] do

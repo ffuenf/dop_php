@@ -34,7 +34,7 @@ end
 directory node['php']['session_dir'] do
   owner 'root'
   group 'root'
-  mode 01733
+  mode 0o1733
   recursive true
   action :create
   only_if { node['php']['save_handler'] == 'file' }
@@ -43,7 +43,7 @@ end
 directory node['php']['upload_dir'] do
   owner 'root'
   group 'root'
-  mode 01777
+  mode 0o1777
   recursive true
   action :create
 end
