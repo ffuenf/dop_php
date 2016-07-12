@@ -6,6 +6,7 @@ This file is used to list changes made in each version of dop_php.
 
 * Quick workaround for go-pear installation trashing system-installed pear (sheuser)
 * Fix detection of installed OAuth module (sheuser)
+* fix rubocop's 'Style/NumericLiteralPrefix: Use 0o for octal literals'
 
 ## 3.0.0 (Unreleased)
 

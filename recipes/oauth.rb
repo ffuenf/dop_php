@@ -23,7 +23,7 @@ template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do
   source 'extension.ini.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(
     name: 'oauth',
     zend: false,

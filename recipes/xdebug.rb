@@ -32,7 +32,7 @@ template "#{node['php']['fpm']['mods_dir']}/xdebug.ini" do
   source 'extension.ini.erb'
   owner 'root'
   group 'root'
-  mode '0644'
+  mode 0o644
   variables(
     name: 'xdebug',
     zend: true,
@@ -55,6 +55,6 @@ directory node['php']['xdebug']['ini']['remote_log_dir']
 file node['php']['xdebug']['ini']['remote_log'] do
   owner 'root'
   group 'root'
-  mode 0777
+  mode 0o777
   action :create_if_missing
 end

@@ -27,7 +27,7 @@ template "#{node['php']['conf_dir']}/php.ini" do
   source 'php.ini.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(php: node['php']['php_ini'])
 end
 
@@ -55,7 +55,7 @@ template '/etc/cron.d/php' do
   variables(
     maxlifetime_script: '/usr/lib/php/maxlifetime'
   )
-  mode 00644
+  mode 0o644
 end
 
 if node['php']['tmpfs']

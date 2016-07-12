@@ -12,7 +12,7 @@ remote_file src_filepath do
   checksum node['php']['ioncube']['checksum']
   owner 'root'
   group 'root'
-  mode 00644
+  mode 0o644
 end
 
 bash 'extract_ioncube' do

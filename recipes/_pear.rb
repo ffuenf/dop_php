@@ -16,7 +16,7 @@ end
 
 cookbook_file "#{Chef::Config['file_cache_path']}/install-pear.sh" do
   source 'install-pear.sh'
-  mode 0755
+  mode 0o755
   only_if { !File.exist?('/usr/bin/pear') }
 end
 

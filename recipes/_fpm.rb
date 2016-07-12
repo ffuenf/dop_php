@@ -18,7 +18,7 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php.ini" do
   owner 'root'
   group 'root'
   notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
-  mode 0644
+  mode 0o644
   variables(php: node['php']['php_ini'])
 end
 
@@ -27,7 +27,7 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php-fpm.conf" do
   source 'php-fpm.conf.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(phpfpm: node['php']['fpm']['conf'])
   notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
 end
@@ -45,7 +45,7 @@ template node['php']['fpm']['rotfile'] do
   source 'php-fpm.logrotate.erb'
   owner 'root'
   group 'root'
-  mode 00644
+  mode 0o644
 end
 
 # Since we do not have any pool files we do not attempt to start the service

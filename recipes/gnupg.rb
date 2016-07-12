@@ -20,7 +20,7 @@ template "#{node['php']['fpm']['mods_dir']}/gnupg.ini" do
   source 'extension.ini.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(name: 'gnupg', directives: [])
   not_if 'php -m | grep gnupg'
 end
