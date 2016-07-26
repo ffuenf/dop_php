@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 3.0.2 (Unreleased)
+
+* add php7.0-oauth by default
+
 ## 3.0.1 (Unreleased)
 
 * Quick workaround for go-pear installation trashing system-installed pear (sheuser)
