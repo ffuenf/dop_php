@@ -43,6 +43,7 @@ node.set['php']['packages'] = if platform?('ubuntu')
                                   php7.0-mcrypt
                                   php7.0-ldap
                                   php7.0-xml
+                                  php7.0-mbstring
                                 )
                               end
 node.set['php']['fpm']['service-name'] = 'php7.0-fpm'
