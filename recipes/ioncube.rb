@@ -2,10 +2,13 @@
 # Cookbook Name:: php
 # Recipe:: ioncube
 #
-
-src_filename = "#{node['php']['ioncube']['filename']}.tar.gz"
+src_filename = node['php']['ioncube']['filename']
 src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
 extract_path = "#{Chef::Config['file_cache_path']}/ioncube/#{node['php']['ioncube']['checksum']}"
+
+directory node['php']['ioncube']['home'] do
+  recursive true
+end
 
 remote_file src_filepath do
   source node['php']['ioncube']['download_url']
@@ -20,9 +23,9 @@ bash 'extract_ioncube' do
   code <<-EOH
     mkdir -p #{extract_path}
     tar xvf #{src_filename} -C #{extract_path}
-    mv #{extract_path}/ioncube #{node['php']['ioncube']['home']}
-    echo '#{node['php']['ioncube']['checksum']}' > #{node['php']['ioncube']['home']}/VERSION
+    mv #{extract_path}/#{node['php']['ioncube']['version']}.so #{node['php']['ioncube']['home']}/#{node['php']['ioncube']['version']}.so
+    echo '#{node['php']['ioncube']['checksum']}' > #{node['php']['ioncube']['home']}/IONCUBE_VERSION
   EOH
-  not_if "test `cat #{node['php']['ioncube']['home']}/VERSION` = #{node['php']['ioncube']['checksum']}"
-  creates "#{node['php']['ioncube']['home']}/VERSION"
+  not_if "test `cat #{node['php']['ioncube']['home']}/IONCUBE_VERSION` = #{node['php']['ioncube']['checksum']}"
+  creates "#{node['php']['ioncube']['home']}/IONCUBE_VERSION"
 end

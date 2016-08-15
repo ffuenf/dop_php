@@ -6,6 +6,7 @@ This file is used to list changes made in each version of dop_php.
 ## 3.0.3 (Unreleased)
 
 * add php7.0-mbstring by default (fixes #2)
+* add ionCube Loader beta for PHP7
 
 ## 3.0.2 (Unreleased)
 
