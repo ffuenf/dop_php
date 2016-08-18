@@ -63,5 +63,5 @@ node.set['php']['fpm']['workers']['slow_filename'] = "#{node['php']['fpm']['log_
 
 node.set['php']['ioncube']['filename'] = 'php7-linux-x86-64-beta8.tgz'
 node.set['php']['ioncube']['checksum'] = '8597b0694376b2fc18a8928673ed5c3d1a6061bac0b4767af2abc358f26f5846'
-node.set['php']['ioncube']['download_url'] = "https://www.ioncube.com/php7-linux-x86-64-beta8.tgz"
+node.set['php']['ioncube']['download_url'] = 'https://www.ioncube.com/php7-linux-x86-64-beta8.tgz'
 node.set['php']['ioncube']['version'] = 'ioncube_loader_lin_x86-64_7.0b8'
