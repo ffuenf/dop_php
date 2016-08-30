@@ -38,7 +38,6 @@ node.set['php']['packages'] = if platform?('ubuntu')
                                   php7.0-json
                                   php7.0-mysql
                                   php7.0-opcache
-                                  php7.0-oauth
                                   php7.0-pspell
                                   php7.0-mcrypt
                                   php7.0-ldap
