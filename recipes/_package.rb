@@ -6,11 +6,8 @@
 include_recipe 'apt'
 include_recipe 'dotdeb' if node['platform'] == 'debian'
 
-if node['php']['version'] == '5.6'
-  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu'
-else
-  apt_repo_uri = 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
-end
+apt_repo_uri = node['php']['version'] == '5.6' || node['php']['version'] == '7.0' ? 'http://ppa.launchpad.net/ondrej/php/ubuntu' : 'http://ppa.launchpad.net/ondrej/php5/ubuntu'
+
 apt_repository 'php' do
   uri apt_repo_uri
   distribution node['lsb']['codename']
@@ -30,14 +27,14 @@ template "#{node['php']['conf_dir']}/php.ini" do
   source 'php.ini.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(php: node['php']['php_ini'])
 end
 
 directory node['php']['session_dir'] do
   owner 'root'
   group 'root'
-  mode 01733
+  mode 0o1733
   recursive true
   action :create
   only_if { node['php']['save_handler'] == 'file' }
@@ -46,19 +43,19 @@ end
 directory node['php']['upload_dir'] do
   owner 'root'
   group 'root'
-  mode 01777
+  mode 0o1777
   recursive true
   action :create
 end
 
-template '/etc/cron.d/php5' do
-  source 'php5.cron.erb'
+template '/etc/cron.d/php' do
+  source 'php.cron.erb'
   owner 'root'
   group 'root'
   variables(
-    maxlifetime_script: '/usr/lib/php5/maxlifetime'
+    maxlifetime_script: '/usr/lib/php/maxlifetime'
   )
-  mode 00644
+  mode 0o644
 end
 
 if node['php']['tmpfs']

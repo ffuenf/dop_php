@@ -2,6 +2,8 @@ AllCops:
   Exclude:
     - 'berks-cookbooks/**/*'
     - 'Guardfile'
+    - 'Gemfile'
+    - 'Vagrantfile'
 
 AlignParameters:
   Enabled: false
@@ -9,11 +11,13 @@ AlignParameters:
 Encoding:
   Enabled: false
 
-LineLength:
+Metrics/LineLength:
   Enabled: false
+  Max: 100
 
-MethodLength:
-  Enabled: false
+Metrics/MethodLength:
+  CountComments: false
+  Max: 100
 
 RescueModifier:
   Enabled: false

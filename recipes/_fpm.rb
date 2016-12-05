@@ -17,8 +17,8 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php.ini" do
   source 'php.ini.erb'
   owner 'root'
   group 'root'
-  notifies :restart, 'service[php5-fpm]'
-  mode 0644
+  notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
+  mode 0o644
   variables(php: node['php']['php_ini'])
 end
 
@@ -27,16 +27,16 @@ template "#{node['php']['fpm']['ext_conf_dir']}/php-fpm.conf" do
   source 'php-fpm.conf.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   variables(phpfpm: node['php']['fpm']['conf'])
-  notifies :restart, 'service[php5-fpm]'
+  notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
 end
 
 # For the pool log files
 directory node['php']['fpm']['log_dir'] do
   owner 'root'
   group 'root'
-  mode 01733
+  mode 0o1733
   action :create
 end
 
@@ -45,17 +45,11 @@ template node['php']['fpm']['rotfile'] do
   source 'php-fpm.logrotate.erb'
   owner 'root'
   group 'root'
-  mode 00644
+  mode 0o644
 end
 
 # Since we do not have any pool files we do not attempt to start the service
-service 'php5-fpm' do
-  case node['platform']
-  when 'ubuntu'
-    if node['platform_version'].to_f >= 9.10
-      provider Chef::Provider::Service::Upstart
-    end
-  end
+service node['php']['fpm']['service-name'] do
   supports start: true, stop: true, reload: true, restart: true, status: true
   action [:enable]
 end
@@ -65,11 +59,11 @@ php_fpm 'master' do
   user node['php']['fpm']['user']
   group node['php']['fpm']['group']
   catch_workers_output node['php']['fpm']['workers']['catch_workers_output']
-  ip_address node['php']['fpm']['ip_address']
-  port node['php']['fpm']['port']
-  status_url node['php']['fpm']['status_url']
-  ping_url node['php']['fpm']['ping_url']
-  slow_filename node['php']['fpm']['slow_filename']
+  ip_address node['php']['fpm']['workers']['ip_address']
+  port node['php']['fpm']['workers']['port']
+  status_url node['php']['fpm']['workers']['status_url']
+  ping_url node['php']['fpm']['workers']['ping_url']
+  slow_filename node['php']['fpm']['workers']['slow_filename']
   max_children node['php']['fpm']['workers']['max_children']
   start_servers node['php']['fpm']['workers']['start_servers']
   min_spare_servers node['php']['fpm']['workers']['min_spare_servers']
@@ -78,9 +72,9 @@ php_fpm 'master' do
   backlog node['php']['fpm']['workers']['backlog']
   slow_timeout node['php']['fpm']['workers']['slow_timeout']
   terminate_timeout node['php']['fpm']['workers']['terminate_timeout']
-  flag_overrides node['php']['fpm']['flag_overrides']
-  value_overrides node['php']['fpm']['value_overrides']
-  env_overrides node['php']['fpm']['env_overrides']
+  flag_overrides node['php']['fpm']['workers']['flag_overrides']
+  value_overrides node['php']['fpm']['workers']['value_overrides']
+  env_overrides node['php']['fpm']['workers']['env_overrides']
   action :add
   only_if { node['php']['fpm']['create_pool'] }
 end

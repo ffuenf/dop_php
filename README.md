@@ -12,10 +12,6 @@ dop_php
 dop_php installs php and supports several modules in sub-recipes.
 opposed to the [php community cookbook](https://github.com/opscode-cookbooks/php), it supports fpm, composer out-of-the-box
 
-Compatibility
--------------
-
-The `master` branch currently sticks to php5 (pecl oauth). Use the `php7` branch for an up-to-date version.
 
 Dependencies
 ------------
@@ -35,7 +31,6 @@ Platform
 
 The following platforms are supported and tested:
 
-* Debian 6.x
 * Debian 7.x
 * Debian 8.x
 * Ubuntu 14.04.x
@@ -81,7 +76,7 @@ License and Author
 
 - Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
 
-- Copyright:: 2015, ffuenf
+- Copyright:: 2016, ffuenf
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

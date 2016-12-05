@@ -8,21 +8,21 @@ provisioner:
   data_path: test/shared
 
 platforms:
-- name: debian-7.9.0-amd64
+- name: debian-8.6.0-amd64
   driver_plugin: vagrant
   driver_config:
-    box: ffuenf/debian-7.9.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/debian-7.9.0-amd64
+    box: ffuenf/debian-8.3.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-8.6.0-amd64
     box_check_update: true
 
-- name: ubuntu-14.04.3-server-amd64
+- name: ubuntu-14.04.4-server-amd64
   driver_plugin: vagrant
   driver_config:
     box: ffuenf/ubuntu-14.04.3-server-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.3-server-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.4-server-amd64
     box_check_update: true
 
-- name: debian-7-0-x64
+- name: debian-8-0-x64
   driver_plugin: digitalocean
   private_networking: false
   ipv6: true
@@ -46,16 +46,17 @@ suites:
 - name: default
   run_list:
     - recipe[php::default]
-    - recipe[php::oauth]
     - recipe[php::predis]
     - recipe[php::xdebug]
-    - recipe[php::gnupg]
   attributes:
+    dotdeb:
+      php_version: '7.0'
     php:
       xdebug:
+        enabled: 'true'
         cli:
-          enabled: "true"
+          enabled: 'true'
     redisio:
-      version: '3.0.6'
-      checksum: '6f1e1523194558480c3782d84d88c2decf08a8e4b930c56d4df038e565b75624'
+      version: '3.2.5'
+      checksum: '8509ceb1efd849d6b2346a72a8e926b5a4f6ed3cc7c3cd8d9f36b2e9ba085315'
       safe_install: false

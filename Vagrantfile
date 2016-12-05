@@ -21,7 +21,7 @@ Vagrant.configure('2') do |config|
   config.vm.network 'private_network', ip: '10.0.0.50'
 
   # basebox
-  config.vm.box = 'ffuenf/debian-7.9.0-amd64'
+  config.vm.box = 'ffuenf/debian-8.2.0-amd64'
 
   # virtualbox options
   config.vm.provider 'virtualbox' do |v|
@@ -55,17 +55,20 @@ Vagrant.configure('2') do |config|
     chef.add_recipe 'php::xdebug'
     chef.add_recipe 'php::gnupg'
     chef.json = {
+      'dotdeb' => {
+        'php_version' => '7.0'
+      },
+      'redisio' => {
+        'version' => '3.0.7',
+        'checksum' => 'b2a791c4ea3bb7268795c45c6321ea5abcc24457178373e6a6e3be6372737f23',
+        'safe_install' => false
+      },
       'php' => {
         'xdebug' => {
           'cli' => {
             'enabled' => true
           }
         }
-      },
-      'redisio' => {
-        'version' => '3.0.6',
-        'checksum' => '6f1e1523194558480c3782d84d88c2decf08a8e4b930c56d4df038e565b75624',
-        'safe_install' => false
       }
     }
   end

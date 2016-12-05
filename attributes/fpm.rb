@@ -14,6 +14,7 @@ default['php']['fpm']['user'] = 'www-data'
 default['php']['fpm']['group'] = 'www-data'
 default['php']['fpm']['rotfile'] = '/etc/logrotate.d/php5-fpm'
 default['php']['fpm']['create_pool'] = false
+default['php']['fpm']['service-name'] = 'php5-fpm'
 
 default['php']['ini']['directives']['fpm'] = node['php']['fpm']['conf']
 
@@ -26,7 +27,7 @@ default['php']['fpm']['conf']['global']['emergency_restart_interval'] = '1m'
 default['php']['fpm']['conf']['global']['process_control_timeout'] = '10s'
 
 default['php']['fpm']['user'] = 'www-data'
-default['php']['fpm']['group'] =  'www-data'
+default['php']['fpm']['group'] = 'www-data'
 default['php']['fpm']['workers']['user'] = node['php']['fpm']['user']
 default['php']['fpm']['workers']['group'] = node['php']['fpm']['group']
 default['php']['fpm']['workers']['ip_address'] = '127.0.0.1'

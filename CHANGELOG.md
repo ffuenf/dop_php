@@ -2,9 +2,33 @@
 
 This file is used to list changes made in each version of dop_php.
 
-## 2.0.8 (January 12, 2016)
+## 4.0.0 (December 5, 2016)
 
-* pin oauth version (stick to php5 compatibility) NOTE: there's already a php7 branch
+* fix oauth for php7
+* fix ioncube for php7
+
+## 3.0.4 (Unreleased)
+
+* do not add php7.0-oauth by default on debian systems (as dotdeb don't provide the php7.0-oauth package) (sheuser)
+
+## 3.0.3 (Unreleased)
+
+* add php7.0-mbstring by default (fixes #2)
+* add ionCube Loader beta for PHP7
+
+## 3.0.2 (Unreleased)
+
+* add php7.0-oauth by default
+
+## 3.0.1 (Unreleased)
+
+* Quick workaround for go-pear installation trashing system-installed pear (sheuser)
+* Fix detection of installed OAuth module (sheuser)
+* fix rubocop's 'Style/NumericLiteralPrefix: Use 0o for octal literals'
+
+## 3.0.0 (Unreleased)
+
+* add php7 support
 
 ## 2.0.7 (November 10, 2015)
 
