@@ -13,9 +13,11 @@ Encoding:
 
 Metrics/LineLength:
   Enabled: false
+  Max: 100
 
 Metrics/MethodLength:
-  Enabled: false
+  CountComments: false
+  Max: 100
 
 RescueModifier:
   Enabled: false
