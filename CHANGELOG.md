@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of dop_php.
 
-## 3.0.5 (December 5, 2016)
+## 4.0.0 (December 5, 2016)
 
 * fix oauth for php7
 * fix ioncube for php7
