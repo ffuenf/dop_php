@@ -23,7 +23,7 @@ bash 'extract_ioncube' do
   code <<-EOH
     mkdir -p #{extract_path}
     tar xvf #{src_filename} -C #{extract_path}
-    mv #{extract_path}/#{node['php']['ioncube']['version']}.so #{node['php']['ioncube']['home']}/#{node['php']['ioncube']['version']}.so
+    mv #{extract_path}/ioncube/#{node['php']['ioncube']['version']}.so #{node['php']['ioncube']['home']}/#{node['php']['ioncube']['version']}.so
     echo '#{node['php']['ioncube']['checksum']}' > #{node['php']['ioncube']['home']}/IONCUBE_VERSION
   EOH
   not_if "test `cat #{node['php']['ioncube']['home']}/IONCUBE_VERSION` = #{node['php']['ioncube']['checksum']}"

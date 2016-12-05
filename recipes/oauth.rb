@@ -10,13 +10,14 @@ php_pear_channel 'pecl.php.net' do
   action :update
 end
 
-php_pear 'oauth' do
-  action :install
-  not_if 'php -m | grep -i oauth'
+execute 'fix pecl' do
+  command 'sed -i "$ s|\-n||g" /usr/bin/pecl'
+  action :run
 end
-execute 'install-oauth' do
+execute 'install pecl-oauth' do
   command 'pecl install oauth'
-  not_if 'pecl list | grep -i oauth'
+  action :run
+  not_if 'php -m | grep -i oauth'
 end
 
 template "#{node['php']['fpm']['mods_dir']}/oauth.ini" do

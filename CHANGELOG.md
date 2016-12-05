@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 3.0.5 (December 5, 2016)
+
+* fix oauth for php7
+* fix ioncube for php7
+
 ## 3.0.4 (Unreleased)
 
 * do not add php7.0-oauth by default on debian systems (as dotdeb don't provide the php7.0-oauth package) (sheuser)
