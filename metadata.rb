@@ -6,7 +6,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 issues_url 'https://github.com/ffuenf/dop_php/issues'
 source_url 'https://github.com/ffuenf/dop_php'
 name 'php'
-version '4.0.0'
+version '4.1.0'
 
 %w(debian ubuntu).each do |os|
   supports os
