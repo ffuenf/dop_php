@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 4.1.0 (December 9, 2016)
+
+* add compatibility to php 7.1
+
 ## 4.0.0 (December 5, 2016)
 
 * fix oauth for php7
