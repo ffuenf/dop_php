@@ -8,6 +8,7 @@ default['php']['session_dir'] = '/var/lib/php5/session'
 default['php']['upload_dir'] = '/var/lib/php5/uploads'
 
 default['php']['version'] = '5.5'
+default['php']['vendor_packages'] = true
 default['php']['packages'] = %w(
   php5-cgi
   php5
