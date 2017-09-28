@@ -14,7 +14,7 @@ unless ::File.exist?(xdebug_src_filepath)
   end
   bash 'extract_xdebug' do
     cwd ::File.dirname(xdebug_src_filepath)
-    code <<-EOH
+    code <<-CODE
       tar xzf #{xdebug_src_filepath} --no-same-owner -C #{xdebug_extract_path}
       cd #{node['php']['xdebug']['filename']}
       phpize
@@ -22,7 +22,7 @@ unless ::File.exist?(xdebug_src_filepath)
       make
       make install
       echo '#{node['php']['xdebug']['checksum']}' > #{Chef::Config['file_cache_path']}/xdebug-VERSION
-    EOH
+    CODE
     not_if "test `cat #{Chef::Config['file_cache_path']}/xdebug-VERSION` == #{node['php']['xdebug']['checksum']}"
     creates "#{Chef::Config['file_cache_path']}/xdebug-VERSION"
   end

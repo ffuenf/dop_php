@@ -8,7 +8,8 @@ default['php']['session_dir'] = '/var/lib/php5/session'
 default['php']['upload_dir'] = '/var/lib/php5/uploads'
 
 default['php']['version'] = '5.5'
-default['php']['packages'] = %w(
+default['php']['vendor_packages'] = true
+default['php']['packages'] = %w[
   php5-cgi
   php5
   php5-dev
@@ -33,7 +34,7 @@ default['php']['packages'] = %w(
   php5-fpm
   php5-imagick
   php5-memcache
-)
+]
 
 default['php']['php_ini']['php']['short_open_tag'] = 'On'
 default['php']['php_ini']['php']['serialize_precision'] = 100

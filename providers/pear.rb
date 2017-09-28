@@ -81,8 +81,6 @@ def removing_package?
     false # nothing to remove
   elsif @new_resource.version.nil?
     true # remove any version of a package
-  elsif @new_resource.version == @current_resource.version
-    true # remove the version we have
   else
     false # we don't have the version we want to remove
   end

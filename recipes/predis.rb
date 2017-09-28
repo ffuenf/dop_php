@@ -32,11 +32,11 @@ end
 
 bash 'make & install phpredis' do
   cwd '/tmp/phpredis'
-  code <<-EOF
+  code <<-CODE
   phpize
   ./configure
   make && make install
-  EOF
+  CODE
   not_if 'php -m | grep redis'
 end
 
