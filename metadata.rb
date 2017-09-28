@@ -9,17 +9,17 @@ name 'php'
 chef_version '>= 12.5' if respond_to?(:chef_version)
 version '4.1.1'
 
-%w(debian ubuntu).each do |os|
+%w[debian ubuntu].each do |os|
   supports os
 end
 
-%w(
+%w[
   apt
   git
   build-essential
   dotdeb
   composer
   redisio
-).each do |ressource|
+].each do |ressource|
   depends ressource
 end

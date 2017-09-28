@@ -2,7 +2,7 @@ use_inline_resources
 
 action :add do
   Chef::Log.info("Creating new PHP-FPM instance for #{new_resource.name}")
-  a = template "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
+  template "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
     cookbook 'php'
     source 'fpm-instance.erb'
     owner 'root'
@@ -52,7 +52,7 @@ end
 action :remove do
   Chef::Log.info("Removing PHP-FPM instance #{new_resource.name}")
 
-  a = file "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
+  file "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
     action :delete
     notifies :restart, "service[#{node['php']['fpm']['service-name']}]"
     not_if { node['php']['fpm']['containerize'] }

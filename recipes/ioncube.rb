@@ -25,7 +25,7 @@ bash 'extract_ioncube' do
     tar xvf #{src_filename} -C #{extract_path}
     mv #{extract_path}/ioncube/#{node['php']['ioncube']['version']}.so #{node['php']['ioncube']['home']}/#{node['php']['ioncube']['version']}.so
     echo '#{node['php']['ioncube']['checksum']}' > #{node['php']['ioncube']['home']}/IONCUBE_VERSION
-  EOH
+EOH
   not_if "test `cat #{node['php']['ioncube']['home']}/IONCUBE_VERSION` = #{node['php']['ioncube']['checksum']}"
   creates "#{node['php']['ioncube']['home']}/IONCUBE_VERSION"
 end

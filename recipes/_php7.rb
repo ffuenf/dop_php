@@ -7,7 +7,7 @@ node.normal['php']['conf_dir'] = '/etc/php/7.0/cli'
 node.normal['php']['ext_conf_dir'] = '/etc/php/7.0/conf.d'
 
 node.normal['php']['packages'] = if platform?('ubuntu')
-                                %w(
+                              %w[
                                   php7.0-fpm
                                   php7.0-cli
                                   php7.0-dev
@@ -25,9 +25,9 @@ node.normal['php']['packages'] = if platform?('ubuntu')
                                   php7.0-soap
                                   php7.0-mbstring
                                   php7.0-zip
-                                )
+                                ]
                               else
-                                node.set['php']['packages'] = %w(
+                                node.normal['php']['packages'] = %w[
                                   php7.0-fpm
                                   php7.0-cli
                                   php7.0-dev
@@ -44,7 +44,7 @@ node.normal['php']['packages'] = if platform?('ubuntu')
                                   php7.0-xml
                                   php7.0-mbstring
                                   php7.0-zip
-                                )
+                                ]
                               end
 node.normal['php']['fpm']['service-name'] = 'php7.0-fpm'
 node.normal['php']['fpm']['dir'] = "#{node['php']['dir']}/7.0/fpm"
