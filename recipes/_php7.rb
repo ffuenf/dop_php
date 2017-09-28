@@ -24,6 +24,7 @@ node.set['php']['packages'] = if platform?('ubuntu')
                                   php7.0-xml
                                   php7.0-soap
                                   php7.0-mbstring
+                                  php7.0-zip
                                 )
                               else
                                 node.set['php']['packages'] = %w(
@@ -42,6 +43,7 @@ node.set['php']['packages'] = if platform?('ubuntu')
                                   php7.0-ldap
                                   php7.0-xml
                                   php7.0-mbstring
+                                  php7.0-zip
                                 )
                               end
 node.set['php']['fpm']['service-name'] = 'php7.0-fpm'
