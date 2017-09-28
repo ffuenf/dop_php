@@ -7,44 +7,44 @@ node.normal['php']['conf_dir'] = '/etc/php/7.1/cli'
 node.normal['php']['ext_conf_dir'] = '/etc/php/7.1/conf.d'
 
 node.normal['php']['packages'] = if platform?('ubuntu')
-                              %w[
-                                  php7.1-fpm
-                                  php7.1-cli
-                                  php7.1-dev
-                                  php7.1-curl
-                                  php7.1-gd
-                                  php7.1-imap
-                                  php7.1-intl
-                                  php7.1-json
-                                  php7.1-mysql
-                                  php7.1-opcache
-                                  php7.1-oauth
-                                  php7.1-pspell
-                                  php7.1-mcrypt
-                                  php7.1-ldap
-                                  php7.1-xml
-                                  php7.1-soap
-                                  php7.1-mbstring
-                                ]
-                              else
-                                node.normal['php']['packages'] = %w[
-                                  php7.1-fpm
-                                  php7.1-cli
-                                  php7.1-dev
-                                  php7.1-curl
-                                  php7.1-gd
-                                  php7.1-imap
-                                  php7.1-intl
-                                  php7.1-json
-                                  php7.1-mysql
-                                  php7.1-opcache
-                                  php7.1-pspell
-                                  php7.1-mcrypt
-                                  php7.1-ldap
-                                  php7.1-xml
-                                  php7.1-mbstring
-                                ]
-                              end
+                                   %w[
+                                     php7.1-fpm
+                                     php7.1-cli
+                                     php7.1-dev
+                                     php7.1-curl
+                                     php7.1-gd
+                                     php7.1-imap
+                                     php7.1-intl
+                                     php7.1-json
+                                     php7.1-mysql
+                                     php7.1-opcache
+                                     php7.1-oauth
+                                     php7.1-pspell
+                                     php7.1-mcrypt
+                                     php7.1-ldap
+                                     php7.1-xml
+                                     php7.1-soap
+                                     php7.1-mbstring
+                                   ]
+                                 else
+                                   node.normal['php']['packages'] = %w[
+                                     php7.1-fpm
+                                     php7.1-cli
+                                     php7.1-dev
+                                     php7.1-curl
+                                     php7.1-gd
+                                     php7.1-imap
+                                     php7.1-intl
+                                     php7.1-json
+                                     php7.1-mysql
+                                     php7.1-opcache
+                                     php7.1-pspell
+                                     php7.1-mcrypt
+                                     php7.1-ldap
+                                     php7.1-xml
+                                     php7.1-mbstring
+                                   ]
+                                 end
 node.normal['php']['fpm']['service-name'] = 'php7.1-fpm'
 node.normal['php']['fpm']['dir'] = "#{node['php']['dir']}/7.1/fpm"
 node.normal['php']['fpm']['ext_conf_dir'] = "#{node['php']['fpm']['dir']}/conf.d"

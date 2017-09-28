@@ -69,7 +69,7 @@ if node['php']['tmpfs']
       options ["size=#{node['php']['tmpfs_size']}", 'mode=1733', 'noatime', 'noexec', 'nosuid', 'nodev']
       dump 0
       pass 0
-      action %i[:enable, :mount]
+      action %i[enable mount]
       supports [remount: true]
       only_if { node['php']['save_handler'] == 'file' }
     end
@@ -79,7 +79,7 @@ if node['php']['tmpfs']
       options ["size=#{node['php']['tmpfs_size']}", 'mode=1733', 'noatime', 'noexec', 'nosuid', 'nodev']
       dump 0
       pass 0
-      action %i[:enable, :mount]
+      action %i[enable mount]
       supports [remount: true]
     end
   end
