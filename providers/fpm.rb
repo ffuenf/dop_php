@@ -1,7 +1,6 @@
 use_inline_resources
 
 action :add do
-  new_resource.updated_by_last_action(false)
   Chef::Log.info("Creating new PHP-FPM instance for #{new_resource.name}")
   a = template "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
     cookbook 'php'
@@ -48,12 +47,9 @@ action :add do
   service node['php']['fpm']['service-name'] do
     action :nothing
   end
-
-  new_resource.updated_by_last_action(a.updated_by_last_action?)
 end
 
 action :remove do
-  new_resource.updated_by_last_action(false)
   Chef::Log.info("Removing PHP-FPM instance #{new_resource.name}")
 
   a = file "#{node['php']['fpm']['pool_dir']}/#{new_resource.name}.conf" do
@@ -65,6 +61,4 @@ action :remove do
   service node['php']['fpm']['service-name'] do
     action :nothing
   end
-
-  new_resource.updated_by_last_action(a.updated_by_last_action?)
 end

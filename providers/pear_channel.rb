@@ -35,7 +35,6 @@ action :discover do
     execute "pear channel-discover #{@new_resource.channel_name}" do
       action :run
     end
-    new_resource.updated_by_last_action(true)
   end
 end
 
@@ -45,7 +44,6 @@ action :add do
     execute "pear channel-add #{@new_resource.channel_xml}" do
       action :run
     end
-    new_resource.updated_by_last_action(true)
   end
 end
 
@@ -76,7 +74,6 @@ action :remove do
     execute "pear channel-delete #{@new_resource.channel_name}" do
       action :run
     end
-    new_resource.updated_by_last_action(true)
   end
 end
 

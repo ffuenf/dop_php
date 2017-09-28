@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of dop_php.
 
+## 4.1.1 (September 28, 2017)
+
+* add php7.0-zip by default
+
 ## 4.1.0 (December 9, 2016)
 
 * add compatibility to php 7.1

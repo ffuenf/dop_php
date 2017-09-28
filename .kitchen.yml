@@ -8,11 +8,18 @@ provisioner:
   data_path: test/shared
 
 platforms:
-- name: debian-8.6.0-amd64
+- name: debian-8.9.0-amd64
   driver_plugin: vagrant
   driver_config:
-    box: ffuenf/debian-8.6.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/debian-8.6.0-amd64
+    box: ffuenf/debian-8.9.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-8.9.0-amd64
+    box_check_update: true
+
+- name: debian-9.1.0-amd64
+  driver_plugin: vagrant
+  driver_config:
+    box: ffuenf/debian-9.1.0-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/debian-9.1.0-amd64
     box_check_update: true
 
 - name: ubuntu-14.04.4-server-amd64
@@ -22,25 +29,12 @@ platforms:
     box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.4-server-amd64
     box_check_update: true
 
-- name: debian-8-0-x64
-  driver_plugin: digitalocean
-  private_networking: false
-  ipv6: true
+- name: ubuntu-16.04.3-server-amd64
+  driver_plugin: vagrant
   driver_config:
-    digitalocean_access_token: <%= ENV['DIGITALOCEAN_ACCESS_TOKEN'] %>
-    region: ams3
-    size: 512mb
-    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
-
-- name: ubuntu-14-04-x64
-  driver_plugin: digitalocean
-  private_networking: false
-  ipv6: true
-  driver_config:
-    digitalocean_access_token: <%= ENV['DIGITALOCEAN_ACCESS_TOKEN'] %>
-    region: ams3
-    size: 512mb
-    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    box: ffuenf/ubuntu-16.04.3-server-amd64
+    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-16.04.3-server-amd64
+    box_check_update: true
 
 suites:
 - name: default
@@ -57,6 +51,6 @@ suites:
         cli:
           enabled: 'true'
     redisio:
-      version: '3.2.5'
-      checksum: '8509ceb1efd849d6b2346a72a8e926b5a4f6ed3cc7c3cd8d9f36b2e9ba085315'
+      version: '4.0.2'
+      checksum: 'b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813'
       safe_install: false

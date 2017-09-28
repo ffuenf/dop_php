@@ -2,12 +2,9 @@
 
 dop_php
 ========
-[![GitHub tag](http://img.shields.io/github/tag/ffuenf/dop_php.svg)][tag]
-[![Build Status](http://img.shields.io/travis/ffuenf/dop_php.svg)][travis]
-[![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)][paypal_donate]
-[tag]: https://github.com/ffuenf/dop_php/tags
-[travis]: https://travis-ci.org/ffuenf/dop_php
-[paypal_donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J2PQS2WLT2Y8W&item_name=dop%3a%20dop_php&item_number=dop_php&currency_code=EUR
+[![GitHub tag](https://img.shields.io/github/tag/ffuenf/dop_php.svg)](https://github.com/ffuenf/dop_php)
+[![Build Status](https://img.shields.io/travis/ffuenf/chef-automysqlbackup.svg)](https://travis-ci.org/ffuenf/dop_php)
+[![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J2PQS2WLT2Y8W&item_name=Chef%3a%20dop_php&item_number=dop_php&currency_code=EUR)
 
 dop_php installs php and supports several modules in sub-recipes.
 opposed to the [php community cookbook](https://github.com/opscode-cookbooks/php), it supports fpm, composer out-of-the-box
@@ -32,7 +29,9 @@ Platform
 The following platforms are supported and tested:
 
 * Debian 8.x
+* Debian 9.x
 * Ubuntu 14.04.x
+* Ubuntu 16.04.x
 
 Other Debian family distributions are assumed to work.
 
@@ -75,7 +74,7 @@ License and Author
 
 - Author:: Achim Rosenhagen (<a.rosenhagen@ffuenf.de>)
 
-- Copyright:: 2016, ffuenf
+- Copyright:: 2017, ffuenf
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
