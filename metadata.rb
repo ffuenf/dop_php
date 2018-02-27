@@ -7,7 +7,7 @@ issues_url 'https://github.com/ffuenf/dop_php/issues'
 source_url 'https://github.com/ffuenf/dop_php'
 name 'php'
 chef_version '>= 12.5' if respond_to?(:chef_version)
-version '4.1.1'
+version '4.2.0'
 
 %w[debian ubuntu].each do |os|
   supports os

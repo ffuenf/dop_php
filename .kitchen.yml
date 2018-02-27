@@ -8,32 +8,18 @@ provisioner:
   data_path: test/shared
 
 platforms:
-- name: debian-8.9.0-amd64
+- name: debian-9.3.0-amd64
   driver_plugin: vagrant
   driver_config:
-    box: ffuenf/debian-8.9.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/debian-8.9.0-amd64
-    box_check_update: true
-
-- name: debian-9.1.0-amd64
-  driver_plugin: vagrant
-  driver_config:
-    box: ffuenf/debian-9.1.0-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/debian-9.1.0-amd64
-    box_check_update: true
-
-- name: ubuntu-14.04.4-server-amd64
-  driver_plugin: vagrant
-  driver_config:
-    box: ffuenf/ubuntu-14.04.4-server-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-14.04.4-server-amd64
+    box: ffuenf/debian-9.3.0-amd64
+    box_url: https://app.vagrantup.com/ffuenf/boxes/debian-9.3.0-amd64
     box_check_update: true
 
 - name: ubuntu-16.04.3-server-amd64
   driver_plugin: vagrant
   driver_config:
     box: ffuenf/ubuntu-16.04.3-server-amd64
-    box_url: https://atlas.hashicorp.com/ffuenf/ubuntu-16.04.3-server-amd64
+    box_url: https://app.vagrantup.com/ffuenf/boxes/ubuntu-16.04.3-server-amd64
     box_check_update: true
 
 suites:
@@ -44,13 +30,13 @@ suites:
     - recipe[php::xdebug]
   attributes:
     dotdeb:
-      php_version: '7.0'
+      php_version: '7.2'
     php:
       xdebug:
         enabled: 'true'
         cli:
           enabled: 'true'
     redisio:
-      version: '4.0.2'
-      checksum: 'b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813'
+      version: '4.0.8'
+      checksum: 'ff0c38b8c156319249fec61e5018cf5b5fe63a65b61690bec798f4c998c232ad'
       safe_install: false
