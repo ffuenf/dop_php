@@ -5,6 +5,7 @@
 include_recipe 'php::_php7' if node['php']['version'] == '7.0'
 include_recipe 'php::_php71' if node['php']['version'] == '7.1'
 include_recipe 'php::_php72' if node['php']['version'] == '7.2'
+include_recipe 'php::_php73' if node['php']['version'] == '7.3'
 include_recipe 'php::_package'
 include_recipe 'php::_fpm'
 include_recipe 'composer'
